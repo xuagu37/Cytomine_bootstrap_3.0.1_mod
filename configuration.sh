@@ -34,11 +34,10 @@ RECEIVER_EMAIL='receiver@XXX.com'
 ADMIN_EMAIL='info@cytomine.coop'
 
 #Paths
-CYCTOMINE_VERSION=3.0.1_mod
-IMS_STORAGE_PATH=$HOME/Cytomine/Cytomine_bootstrap_$CYCTOMINE_VERSION/data/images
-IMS_BUFFER_PATH=$HOME/Cytomine/Cytomine_bootstrap_$CYCTOMINE_VERSION/data/images/_buffer
-BACKUP_PATH=$HOME/Cytomine/Cytomine_bootstrap_$CYCTOMINE_VERSION/data/backup
-ALGO_PATH=$HOME/Cytomine/Cytomine_bootstrap_$CYCTOMINE_VERSION/data/algo
+IMS_STORAGE_PATH=$HOME/Cytomine/data/images
+IMS_BUFFER_PATH=$HOME/Cytomine/data/images/_buffer
+BACKUP_PATH=$HOME/Cytomine/data/backup
+ALGO_PATH=$HOME/Cytomine/data/algo
 sudo rm -rf $IMS_STORAGE_PATH
 sudo rm -rf $IMS_BUFFER_PATH
 sudo rm -rf $BACKUP_PATH
