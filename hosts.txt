@@ -1,0 +1,6 @@
+# Cytomine local deployment, add to /etc/hosts
+127.0.0.1 localhost-core
+127.0.0.1 localhost-ims
+127.0.0.1 localhost-ims2
+127.0.0.1 localhost-upload
+127.0.0.1 rabbitmq
