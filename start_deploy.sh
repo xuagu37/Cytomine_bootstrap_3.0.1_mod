@@ -74,7 +74,7 @@ docker exec -it slurm chmod 600 /home/cytomine/.ssh/authorized_keys
 
 docker create --name iipOff \
 --link memcached:memcached \
--v /home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images:/home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images \
+-v /data/images:/data/images \
 --privileged -e NB_IIP_PROCESS=10 \
 --restart=unless-stopped \
 cytomine/iipofficial:v1.2.0 > /dev/null
@@ -85,7 +85,7 @@ docker start iipOff
 
 docker create --name iipCyto \
 --link memcached:memcached \
--v /home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images:/home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images \
+-v /data/images:/data/images \
 --privileged -e NB_IIP_PROCESS=10 \
 --restart=unless-stopped \
 cytomine/iipcyto:v1.2.2 > /dev/null
@@ -95,7 +95,7 @@ docker start iipCyto
 
 
 docker create --name bioformat \
--v /home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images:/home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images \
+-v /data/images:/data/images \
 -e BIOFORMAT_PORT=4321 \
 --restart=unless-stopped \
 cytomine/bioformat:v1.1.2 > /dev/null
@@ -105,9 +105,9 @@ docker start bioformat
 
 docker create --name ims \
 --link bioformat:bioformat \
--e IMS_STORAGE_PATH=/home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images \
--v /home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images:/home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images \
--v /home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images/_buffer:/tmp/uploaded \
+-e IMS_STORAGE_PATH=/data/images \
+-v /data/images:/data/images \
+-v /data/images/_buffer:/tmp/uploaded \
 --restart=unless-stopped \
 cytomine/ims:v1.2.6 > /dev/null
 
@@ -133,7 +133,7 @@ docker start core
 docker create --name web_UI \
 -v /etc/localtime:/etc/localtime \
 --restart=unless-stopped \
-cytomine/web_ui:v1.4.0 > /dev/null
+cytomine/web_ui:v1.2.1 > /dev/null
 
 docker cp "${PWD}/configs/web_ui/configuration.json" web_UI:/app/configuration.json
 docker cp "${PWD}/configs/web_ui/nginx.conf" web_UI:/etc/nginx/nginx.conf
@@ -146,7 +146,7 @@ docker create --name nginx \
 --link core:core \
 --link iipOff:iipOff \
 --link web_UI:web_UI \
--v /home/xuagu37/Cytomine/Cytomine_bootstrap_3.0.1_mod/data/images/_buffer:/tmp/uploaded \
+-v /data/images/_buffer:/tmp/uploaded \
 -p 80:80 \
 --restart=unless-stopped \
 cytomine/nginx:v1.3.1 > /dev/null

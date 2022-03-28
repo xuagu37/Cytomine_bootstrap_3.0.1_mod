@@ -34,18 +34,18 @@ RECEIVER_EMAIL='receiver@XXX.com'
 ADMIN_EMAIL='info@cytomine.coop'
 
 #Paths
-IMS_STORAGE_PATH=$HOME/Cytomine/data/images
-IMS_BUFFER_PATH=$HOME/Cytomine/data/images/_buffer
-BACKUP_PATH=$HOME/Cytomine/data/backup
-ALGO_PATH=$HOME/Cytomine/data/algo
+IMS_STORAGE_PATH=/data/images
+IMS_BUFFER_PATH=/data/images/_buffer
+BACKUP_PATH=/data/backup
+ALGO_PATH=/data/algo
 sudo rm -rf $IMS_STORAGE_PATH
 sudo rm -rf $IMS_BUFFER_PATH
 sudo rm -rf $BACKUP_PATH
 sudo rm -rf $ALGO_PATH
-mkdir -p $IMS_STORAGE_PATH
-mkdir -p $IMS_BUFFER_PATH
-mkdir -p $BACKUP_PATH
-mkdir -p $ALGO_PATH
+sudo mkdir -p $IMS_STORAGE_PATH
+sudo mkdir -p $IMS_BUFFER_PATH
+sudo mkdir -p $BACKUP_PATH
+sudo mkdir -p $ALGO_PATH
 
 #middlewares
 RABBITMQ_LOGIN="router"

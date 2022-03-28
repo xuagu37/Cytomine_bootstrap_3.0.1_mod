@@ -4,8 +4,8 @@ rabbitmq.username='router'
 rabbitmq.password='router'
 
 cytomine.core.url='http://localhost-core'
-cytomine.core.publicKey='9b5f07ca-1053-41db-aa24-da300f855e69'
-cytomine.core.privateKey='3a789410-77ab-4901-8d83-c0dfbe584c2a'
+cytomine.core.publicKey='348d0f66-0213-44bf-a180-b17cecce03cb'
+cytomine.core.privateKey='ccb7b6bd-b593-400e-bcf5-6699b6fd3938'
 
 cytomine.software.communication.exchange = "exchangeCommunication"
 cytomine.software.communication.queue = "queueCommunication"
